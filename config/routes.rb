@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   
   resources :sites
   resources :site_nodes
+  resources :article_categories
   
   namespace :admin do
     resources :site_nodes
     resources :sites
+    resources :article_categories
   end
 end
