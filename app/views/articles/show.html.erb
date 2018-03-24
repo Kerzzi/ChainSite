@@ -1,0 +1,11 @@
+<div class="col-md-12">
+
+  <h2><%= @article.title %></h2>
+  <p><%= t(@article.status, :scope => "article.status") %></p>
+  <p> 分类：<%= @article.article_category.try(:name) %></p>
+  <p> 作者：<%= @article.author %> 文章来源：<%= @article.source %></p>
+  <p> 最后更新时间：<%= time_tag(@article.updated_at) %> </p>
+  <hr>
+  <%= sanitize @article.content %>
+
+</div>

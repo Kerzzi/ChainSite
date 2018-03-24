@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
          
   has_many :sites
+  has_many :articles
          
 end
