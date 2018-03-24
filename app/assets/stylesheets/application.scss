@@ -17,3 +17,163 @@
 
 @import "bootstrap-sprockets"; 
 @import "bootstrap";
+
+html{
+  height: 100%;                                      // footer固定底部
+}
+
+body {
+  display: flex;                                     // footer固定底部
+  flex-direction: column;                            // footer固定底部
+  height: 100%;                                      // footer固定底部
+
+  padding: 70px 0 0 0;                               // 腾出navbar的遮挡空间
+  position: relative;
+  background-color: #F5F5F5;
+
+  letter-spacing: 0.1em;                              //字间距
+  a {                                                 // 所有a标签统一样式
+    color: #666;                                      // 链接反转的样式
+    transition: 0.5s;                                 // 鼠标移开时 0.5秒渐变
+  }
+  a:hover {
+    // color: #7f8c8d;
+    background-color: transparent;
+    transition: 0.5s;                                 // 鼠标指向时 0.5面渐变
+    text-decoration: none;                            // 移除下划线
+  }
+  a:focus {
+    background-color: transparent;
+  }
+ }
+
+ .main-content{
+   /* 将 flex-grow 设置为1，该元素会占用全部可使用空间
+      而其他元素该属性值为0，因此不会得到多余的空间*/
+   /* 1 flex-grow, 0 flex-shrink, auto flex-basis */
+   flex: 1 0 auto;
+ }
+
+ /* 通用的图片格式 */
+  .all_image_css {
+    transition: 0.8s;
+  }
+
+  .ads-image-css{
+    img {
+      max-width:100%; height:auto;         //通用广告图片样式。
+      }
+  }
+
+// navbar设置
+nav{
+ /* 我们希望 navbar 采用固定的高度，只占用必须的空间 */
+ /* 0 flex-grow, 0 flex-shrink, auto flex-basis */
+ flex: 0 0 auto;
+}
+
+// mega-dropdown
+
+  .mega-dropdown {
+    position: static !important;
+  }
+  .mega-dropdown-menu {
+      padding: 20px 20px;
+      width: 100%;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+  }
+  .mega-dropdown-menu > li > ul {
+    padding: 0;
+    margin: 0;
+  }
+  .mega-dropdown-menu > li > ul > li {
+    list-style: none;
+  }
+  .mega-dropdown-menu > li > ul > li > a {
+    display: block;
+    color: #222;
+    padding: 3px 5px;
+  }
+  .mega-dropdown-menu > li ul > li > a:hover,
+  .mega-dropdown-menu > li ul > li > a:focus {
+    text-decoration: none;
+  }
+  .mega-dropdown-menu .dropdown-header {
+    font-size: 18px;
+    color: #ff3546;
+    padding: 5px 60px 5px 5px;
+    line-height: 30px;
+  }
+
+  .carousel-control {
+    width: 30px;
+    height: 30px;
+    top: -35px;
+
+  }
+  .left.carousel-control {
+    right: 30px;
+    left: inherit;
+  }
+  .carousel-control .glyphicon-chevron-left,
+  .carousel-control .glyphicon-chevron-right {
+    font-size: 12px;
+    background-color: #fff;
+    line-height: 30px;
+    text-shadow: none;
+    color: #333;
+    border: 1px solid #ddd;
+  }
+
+//footer样式设置
+
+.footer{
+    /* 和 navbar 一样，footer 也采用固定高度*/
+    /* 0 flex-grow, 0 flex-shrink, auto flex-basis */
+    flex: 0 0 auto;
+    width:100%;
+    text-align: center;
+    min-height: 220px;
+    padding-top: 15px;
+    background-color: #E0E0E0;
+    margin-bottom: auto;
+    color: #212121;
+
+    p{
+        font-size: 14px;
+        text-align: left;
+    }
+
+    li{
+      margin-top: 3px;
+    }
+
+    a{
+      text-decoration:none;
+      color: #616161;
+    }
+    a:hover,
+    a:active,
+    a:focus{
+      color: #424242;
+    }
+
+    img{
+      width: 65px;
+      margin: 5px;
+    }
+
+    img:hover{
+      opacity: 0.75;
+    }
+
+    .copyright-info{
+      float: left;
+      color: #616161;
+    }
+    .legal-info{
+      float: right;
+      color: #9E9E9E;
+    }
+}
