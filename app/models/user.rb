@@ -6,5 +6,6 @@ class User < ApplicationRecord
          
   has_many :sites
   has_many :articles
+  has_many :projects
          
 end

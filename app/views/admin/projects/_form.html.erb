@@ -1,0 +1,117 @@
+<%= form_for [:admin,@project] do |f| %>
+
+  <div class="form-group">
+    <%= f.label "项目名称" %>
+    <%= f.text_field :title, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "当前状态" %>
+    <%= f.select :status, Project::STATUS.map{ |s| [t(s, :scope => "project.status"), s] }, {}, :class => "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label "ico开始时间" %>
+    <%= f.text_field :ico_start, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "ico截止时间" %>
+    <%= f.text_field :ico_end, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "众筹网站" %>
+    <%= f.text_field :ico_url, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "官网" %>
+    <%= f.text_field :website, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Slack" %>
+    <%= f.text_field :slack, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Facebook" %>
+    <%= f.text_field :facebook, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Telegram" %>
+    <%= f.text_field :telegram, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Twitter" %>
+    <%= f.text_field :twitter, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "微博" %>
+    <%= f.text_field :weibo, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Github" %>
+    <%= f.text_field :github, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "白皮书" %>
+    <%= f.text_field :whitepaper, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "代币流通数量" %>
+    <%= f.text_field :ico_amount, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "代币发行总量" %>
+    <%= f.text_field :token_amount, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "募资上限" %>
+    <%= f.text_field :raised_ceiling, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "募资成本" %>
+    <%= f.text_field :fundraising_cost, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "接受币种" %>
+    <%= f.text_field :accept_token, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "代币类型" %>
+    <%= f.text_field :token_type, :class => "form-control" %>
+  </div>
+    
+  <div class="form-group">
+    <%= f.label "项目介绍" %>
+    <%= f.text_field :introduce, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "测评得分" %>
+    <%= f.text_field :grade, :class => "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label "测评报告" %>
+    <%= f.text_field :rating_report, :class => "form-control" %>
+  </div>  
+
+  <div class="form-group">
+    <%= f.submit "提交", :class => "btn btn-primary" %>
+  </div>
+<% end %>
+
