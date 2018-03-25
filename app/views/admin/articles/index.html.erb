@@ -10,11 +10,11 @@
     <p>目前前台可以投稿，投稿的状态默认为<span class="label label-warning">待审核</span>，请编辑部人员对投稿进行审核。</p>
     <hr>
     <div class="admin_artcle">
-  
+      <%= form_tag bulk_update_admin_articles_path, :class => "form-inline" do %>
         <table class="table table-hover">
           <thead>
             <tr>
-              
+              <th><%= check_box_tag "全选", "1", false, :id => "toggle_all" %></th>
               <td>标题</td>
               <td>作者</td>
               <td>发布状态</td>
@@ -26,7 +26,9 @@
           <tbody>
             <% @articles.each do |article| %>
               <tr>
-  
+                <td>
+                  <%= check_box_tag "ids[]", article.id %>
+                </td>
                 <td><%= link_to(article.title, admin_article_path(article)) %></td>
                 <td><%= article.author %></td>
                 <td><%= t(article.status, :scope => "article.status") %></td>
@@ -40,8 +42,11 @@
             <% end %>
           </tbody>
         </table>
+        <p>
+          <%= submit_tag "批次删除", :class => "btn btn-danger", :data => { :confirm => "Are you sure?" } %>
+        </p>
+      <% end %>
 
-      
       <div class="text-center">
         <%= will_paginate @articles, renderer: BootstrapPagination::Rails, :previous_label => t('上一页'), :next_label => t('下一页') %>
       </div>
@@ -49,4 +54,13 @@
   </div><!-- /panel-body -->
 </div>
 
-
+<script>
+  // 这个 javascript 会绑事件在 #toggle_all 核选方块上，来做全选效果
+  $("#toggle_all").click(function(){
+    if ( $(this).prop("checked") ) {
+      $("input[name='ids[]']").prop("checked", true);
+    } else {
+      $("input[name='ids[]']").prop("checked", false);
+    }
+  })
+</script>

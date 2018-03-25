@@ -9,14 +9,14 @@
     </div>
     <p>操作说明：mark</p>
     <hr>
-    
+
     <!-- Table -->
     <div id="admin_site_nodes">
-      
+      <%= form_tag bulk_update_admin_site_nodes_path, :class => "form-inline" do %>
         <table class="table table-hover">
           <thead>
             <tr>
-
+              <th><%= check_box_tag "全选", "1", false, :id => "toggle_all" %></th>
               <td>ID</td>
               <td>分类名</td>
               <td>排序</td>
@@ -26,7 +26,9 @@
           <tbody>
             <% @site_nodes.each do |site_node| %>
               <tr>
-
+                <td>
+                  <%= check_box_tag "ids[]", site_node.id %>
+                </td>
                 <td><%= site_node.id %></td>
                 <td><%= site_node.name %></td>
                 <td><%= site_node.sort %></td>
@@ -38,13 +40,24 @@
             <% end %>
           </tbody>
         </table><!-- /Table -->
-    
-    
+        <p><%= submit_tag "批次删除", :class => "btn btn-danger", :data => { :confirm => "Are you sure?" } %></p>
+      <% end %>
 
       <div class="text-center">
         <%= will_paginate @site_nodes, renderer: BootstrapPagination::Rails, :previous_label => t('上一页'), :next_label => t('下一页') %>
       </div>
-      
+
     </div><!-- /admin_site_node -->
   </div><!-- /panel-body -->
 </div>
+
+<script>
+  // 这个 javascript 会绑事件在 #toggle_all 核选方块上，来做全选效果
+  $("#toggle_all").click(function(){
+    if ( $(this).prop("checked") ) {
+      $("input[name='ids[]']").prop("checked", true);
+    } else {
+      $("input[name='ids[]']").prop("checked", false);
+    }
+  })
+</script>

@@ -43,6 +43,18 @@ class Admin::ArticlesController < Admin::BaseController
     redirect_to admin_articles_path, alert: "文章已删除"
   end
 
+  def bulk_update
+    total = 0
+    Array(params[:ids]).each do |article_id|
+      article = Article.find(article_id)
+      article.destroy
+      total += 1
+    end
+
+    flash[:alert] = "成功完成 #{total} 笔"
+    redirect_to admin_articles_path
+  end
+
   private
 
   def article_params

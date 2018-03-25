@@ -37,6 +37,18 @@ class Admin::SiteNodesController < Admin::BaseController
     redirect_to admin_site_nodes_path, alert: "删除成功！"
   end
 
+  def bulk_update
+    total = 0
+    Array(params[:ids]).each do |site_node_id|
+      site_node = SiteNode.find(site_node_id)
+      site_node.destroy
+      total += 1
+    end
+
+    flash[:alert] = "成功完成 #{total} 笔"
+    redirect_to admin_site_nodes_path
+  end
+
   private
 
   def site_node_params
