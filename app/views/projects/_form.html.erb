@@ -1,6 +1,17 @@
 <%= form_for @project do |f| %>
 
   <div class="form-group">
+    <%= f.label "项目logo" %>
+    <%= f.file_field :logo, :class => "form-control" %>
+    <% if f.object.logo.present? %>
+      <label>
+        <%= f.check_box :remove_logo %> 删除logo
+      </label>
+      <%= link_to f.object.logo.filename, f.object.logo.url, :target => "_blank" %>
+    <% end %>
+  </div>
+
+  <div class="form-group">
     <%= f.label "项目名称" %>
     <%= f.text_field :title, :class => "form-control" %>
   </div>

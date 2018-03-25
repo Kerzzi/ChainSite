@@ -14,11 +14,11 @@
 
             <!-- 文章列表图片 -->
             <div class="col-md-3 all_image_css">
-
-
+              <% if article.image.present? %>
+                <%= link_to image_tag(article.image.articleimg.url, class: "product-list-style-img img-responsive"), article_path(article) %>
+              <% else %>
                 <%= link_to image_tag("https://ww2.sinaimg.cn/large/006tKfTcly1fnt7p9w5h6j306o06owec.jpg", class: "product-list-style-img img-responsive"), article_path(article)%>
-
-
+              <% end %>
             </div>
 
             <!-- 文章列表标题、作者、日期 -->
