@@ -3,15 +3,14 @@
     <head>
         <title>ChainSite</title>
         <%= csrf_meta_tags %>
-        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> 
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
-    
+
     <body id="<%= "#{controller_name}-#{action_name}"%>">
 
-        <%= render "common/navbar" %>
-        <%= render "common/flashes" %>  
-        
+        <%= render "common/navbar" %>       
+
         <div class="row  main-content">
           <%= yield %>
         </div>

@@ -1,3 +1,141 @@
-// Place all the styles related to the articles controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// article/index CSS
+
+.article-all {
+  margin: 10px 10px 0 10px;
+}
+
+.article-box {
+  .article-summary{
+    // 下面4句，限制只显示几行文章，超出部分显示省略号
+    display: -webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+.article-index-box {
+  background-color: #fff;
+  padding-top: 10px;
+}
+
+.article-index-title {
+  font-size: 1.3em;
+  font-weight: normal;
+}
+
+.article-user {
+  color: #999;
+  margin-top: 10px;
+}
+
+
+// article/show CSS
+
+.article-show {
+  margin: 30px auto;
+}
+
+.article-show-box {
+  margin-bottom: 60px;
+  background-color: #fff;
+}
+
+.article-title {
+  h1 {
+    font-size: 2em;
+    font-weight: normal;
+  }
+}
+
+.article-author {
+  margin: 40px auto 60px;
+  color: #7f8c8d;
+}
+
+.article-summary {
+  p {
+    font-size: 0.8em;
+    font-weight: normal;
+    color: #999;
+    line-height: 1.8em;
+  }
+}
+
+.article-image {
+  margin: 50px auto 30px;
+}
+
+.article-content {
+  margin: 30px auto;
+  font-size: 1.2em;
+  line-height: 1.8em;                   //拉开行高
+  text-align: justify;                  //文本两端对齐,可以实现文本排版的工整对齐，避免出现掉字、掉标点这样的低级排版错误，影响页面美观度。
+  img {
+    max-width:100%; height:auto;         //重要样式代码，需要配合application.js的自适应代码块一起使用。可以实现图片按照divbox大小自动伸缩，从而实现响应式布局。
+    border-radius: 6px;                 //为所有图片设置6px的圆角
+    }
+}
+
+
+
+// 侧边栏
+.article-sidebar{
+  background-color: #fff;
+  margin-bottom: 16px;
+}
+.article-side-author {
+  margin: -19px 0 0 0 ;
+  // border: 1px #e3e3e3 solid;
+  // border-radius: 6px;
+  background-color: #fff;
+}
+
+.article-avatar {
+  margin: 20px auto 10px;
+
+}
+
+.article-username {
+  color: #7f8c8d;
+  font-size: 1.2em;
+}
+
+.article-author-summary {
+  margin: 20px 20px;
+  font-size: 1em;
+  font-weight: 300;
+  line-height: 1.8em;
+  color: #999;
+  text-align: justify;
+}
+
+.article-author-title-list {
+  margin: 20px 20px;
+  color: #7f8c8d;
+  font-size: 1em;
+  line-height: 1.8em;
+  list-style: none;
+  background-color: #fff;
+}
+
+.article-author-title-list-time {
+  font-size: 0.6em;
+  color: #7f8c8d;
+}
+
+.article-show-hot-list {
+  padding: 5px 10px 5px 10px;
+  color: #7f8c8d;
+  font-size: 0.9em;
+  line-height: 1.3em;
+  list-style: none;
+  background-color: #fff;
+}
+.article-show-hot {
+
+  img {
+    max-width:100%; height:40px;         //重要样式代码，需要配合application.js的自适应代码块一起使用。可以实现图片按照divbox大小自动伸缩，从而实现响应式布局。
+    border-radius: 6px;                 //为所有图片设置6px的圆角
+    }
+}

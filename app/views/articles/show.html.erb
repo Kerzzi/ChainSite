@@ -1,11 +1,60 @@
-<div class="col-md-12">
+<div class="container">
+  <%= render "common/flashes" %>
+</div>
 
-  <h2><%= @article.title %></h2>
-  <p><%= t(@article.status, :scope => "article.status") %></p>
-  <p> 分类：<%= @article.article_category.try(:name) %></p>
-  <p> 作者：<%= @article.author %> 文章来源：<%= @article.source %></p>
-  <p> 最后更新时间：<%= time_tag(@article.updated_at) %> </p>
-  <hr>
-  <%= sanitize @article.content %>
+<div class="container">
+  <div class="row">
 
+    <div class="article-show">
+
+      <div class="col-md-9 article-show-box">
+
+        <!-- 标题 -->
+        <div class="article-title">
+          <h3><%= @article.title %></h3>
+        </div>
+
+        <!-- 作者、发布时间 -->
+        <div class="article-author">
+
+          <span> <%= @article.user.email %></span> ·
+          于<span> <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span> ·
+          发布在 · <span> <%= @article.article_category.try(:name) %></span>栏目 ·
+          <span> <%= t(@article.status, :scope => "article.status") %></span>
+          <hr>
+        </div>
+
+        <!-- 摘要 -->
+        <div class="article-summary">
+          <p>
+            <blockquote>
+                <%= simple_format(@article.summary) %>
+            </blockquote>
+          </p>
+        </div>
+
+        <!-- 主图 -->
+        <% if @article.image.present? %>
+          <div class="article-image">
+            <%= image_tag(@article.image.articleimg.url, class: "img-rounded img-responsive center-block") %>
+          </div>
+        <% end %>
+        <hr>
+
+        <!-- 内容 -->
+        <div class="article-content">
+          <%= simple_format(@article.content) %>
+        </div>
+
+        <hr>
+
+
+
+      </div>
+
+      <%= render "sidebar_for_article_show.html.erb" %>
+
+    </div>
+
+  </div>
 </div>
