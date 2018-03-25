@@ -1,0 +1,41 @@
+<div class="container">
+  <%= render "common/flashes" %>
+</div>
+
+<div class="container">
+
+  <div class="col-md-9 project-index-box">
+    <% @projects.each do |project| %>
+      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+          <div class="project-card">
+
+                <img src="https://inst.eecs.berkeley.edu/~cs194-26/fa14/upload/files/proj3/cs194-fi/images/warm_sky.jpg" alt="Ver post">
+
+              <div class="card-body secondbase">
+                  <h4 class="card-project-grade">
+                    <% if project.grade.present? %>
+                      <span class="label label-danger"><b>项目评分 <%=  project.grade %>分</b></span>
+                    <% else %>
+                      <span class="label label-warning"><b>待评级</b></span>
+                    <% end %>
+                  </h4>
+
+                  <div class="card-project-title">
+                    <h5 class="text-center"><%= link_to(truncate(project.title,:length => 16), project_path(project)) %></h5>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <br>
+    <% end %>
+
+    <div class="text-center">
+      <%= will_paginate @projects, renderer: BootstrapPagination::Rails, :previous_label => t('上一页'), :next_label => t('下一页') %>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <%= render "sidebar_for_project_index" %>
+  </div>
+
+</div>

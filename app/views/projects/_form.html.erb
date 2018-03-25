@@ -1,13 +1,8 @@
-<%= form_for [:admin,@project] do |f| %>
+<%= form_for @project do |f| %>
 
   <div class="form-group">
     <%= f.label "项目名称" %>
     <%= f.text_field :title, :class => "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label "当前状态" %>
-    <%= f.select :status, Project::STATUS.map{ |s| [t(s, :scope => "project.status"), s] }, {}, :class => "form-control" %>
   </div>
 
   <div class="form-group">
@@ -21,7 +16,7 @@
   </div>
 
   <div class="form-group">
-    <%= f.label "众筹网站" %>
+    <%= f.label "众筹网站"%>
     <%= f.text_field :ico_url, :class => "form-control" %>
   </div>
 
@@ -100,17 +95,8 @@
     <%= f.text_field :introduce, :class => "form-control" %>
   </div>
 
-  <div class="form-group">
-    <%= f.label "测评得分" %>
-    <%= f.text_field :grade, :class => "form-control" %>
-  </div>
 
   <div class="form-group">
-    <%= f.label "测评报告" %>
-    <%= f.text_field :rating_report, :class => "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.submit "提交", :class => "btn btn-primary" %>
+    <%= f.submit "提交审核", :class => "btn btn-primary" %>
   </div>
 <% end %>

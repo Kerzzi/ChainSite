@@ -1,0 +1,51 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+
+    <div class="project-website ">
+      <h4>链接</h4>
+      <!-- <hr> -->
+      <table class="table table-hover">
+        <tr>
+          <td><%= link_to(content_tag(:i," 官网", class: 'fa fa-home'), @project.website) %></td>
+          <td><%= link_to(content_tag(:i," Slack", class: 'fa fa-slack'), @project.slack) %></td>
+        </tr>
+        <tr>
+          <td><%= link_to(content_tag(:i," Facebook", class: 'fa fa-facebook-official'), @project.facebook) %></td>
+          <td><%= link_to(content_tag(:i," Telegram", class: 'fa fa-telegram'), @project.telegram) %></td>
+        </tr>
+        <tr>
+          <td><%= link_to(content_tag(:i," Twitter", class: 'fa fa-twitter'), @project.twitter) %></td>
+          <td><%= link_to(content_tag(:i," 微博", class: 'fa fa-weibo'), @project.weibo) %></td>
+        </tr>
+        <tr>
+          <td><%= link_to(content_tag(:i," Github", class: 'fa fa-github'), @project.github) %></td>
+          <td><%= link_to(content_tag(:i," 白皮书", class: 'fa fa-book'), @project.whitepaper) %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+
+    <div class="project-sidebar">
+      <h4>更多项目</h4>
+      <hr>
+      <%= link_to("项目列表", projects_path, class: "btn btn-default")%>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body ads-image-css">
+
+    <img src= "https://ww4.sinaimg.cn/large/006tKfTcly1fnt6b3yncgj30ik0t8dhw.jpg" >
+
+  </div>
+</div>
+
+
+<div class="">
+  <%= link_to("提交新项目", new_project_path, class: "btn btn-danger btn-block") %>
+</div>
