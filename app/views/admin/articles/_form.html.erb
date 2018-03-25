@@ -18,14 +18,12 @@
     <%= f.input :summary, input_html: { style: "width:100%; height:100px;"}, :label => "简介" %>
     <%= f.association :article_category , :label => "文章类别"%>
   </div>
-  
+
   <div class="form-group">
     <%= f.input :content, :label => "文章内容" %>
   </div>
-  
+
   <%= f.submit "发布官方文章", class: "btn btn-primary", data: { disable_with: "Submiting..." } %>
   <div class="pull-right"><a href="#" target="_blank">点击右下角拉升文本框</a><i class="fa fa-arrows-v" aria-hidden="true"></i></div>
   <div class="pull-right "><a href="#" target="_blank"><i class="fa fa-tip"></i> 排版说明</a>&nbsp; · &nbsp;</div>
 <% end %>
-
-
