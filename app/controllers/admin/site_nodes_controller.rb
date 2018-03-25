@@ -1,8 +1,8 @@
-class Admin::SiteNodesController < ApplicationController
+class Admin::SiteNodesController < Admin::BaseController
   def index
-    @site_nodes = SiteNode.all.paginate(:page => params[:page], :per_page => 20)  
+    @site_nodes = SiteNode.all.paginate(:page => params[:page], :per_page => 20)
   end
-  
+
   def edit
     @site_node = SiteNode.find(params[:id])
   end
@@ -42,5 +42,5 @@ class Admin::SiteNodesController < ApplicationController
   def site_node_params
     params.require(:site_node).permit(:name, :sort)
   end
-    
+
 end

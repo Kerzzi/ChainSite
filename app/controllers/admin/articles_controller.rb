@@ -1,5 +1,5 @@
-class Admin::ArticlesController < ApplicationController
-  
+class Admin::ArticlesController < Admin::BaseController
+
   def index
     @articles = Article.all.recent.paginate(:page => params[:page], :per_page => 20)
   end

@@ -1,12 +1,18 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.all.recent.paginate(:page => params[:page], :per_page => 20)
+    @articles = Article.published.recent.paginate(:page => params[:page], :per_page => 20)
   end
 
   def show
     @article = Article.find(params[:id])
     @user = @article.user
     @userarticles = @article.user.articles.recent.paginate(:page => params[:page], :per_page => 5)
+
+    if @article.status != "public"
+      flash[:warning] = "这篇文章在审核中！不可查看！"
+      redirect_to root_path
+    end
+
   end
 
   def new

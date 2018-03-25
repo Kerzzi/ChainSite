@@ -1,4 +1,4 @@
-class Admin::ProjectsController < ApplicationController
+class Admin::ProjectsController < Admin::BaseController
   def index
     @projects = Project.all.recent.paginate(:page => params[:page], :per_page => 20)
   end

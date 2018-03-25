@@ -1,7 +1,7 @@
-class Admin::ArticleCategoriesController < ApplicationController
+class Admin::ArticleCategoriesController < Admin::BaseController
 
   def index
-    @article_categories = ArticleCategory.all.paginate(:page => params[:page], :per_page => 20) 
+    @article_categories = ArticleCategory.all.paginate(:page => params[:page], :per_page => 20)
   end
 
   def edit
@@ -45,5 +45,5 @@ class Admin::ArticleCategoriesController < ApplicationController
     params.require(:article_category).permit(:name, :sort)
   end
 
-  
+
 end

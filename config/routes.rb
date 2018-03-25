@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :projects
 
   namespace :admin do
+    root to: 'sites#index', as: 'root'
     resources :site_nodes
     resources :sites
     resources :article_categories
