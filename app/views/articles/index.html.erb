@@ -23,24 +23,34 @@
 
             <!-- 文章列表标题、作者、日期 -->
             <div class="col-md-9">
-              <div class="row">
-                <%= link_to(truncate(article.title,:length => 40),article_path(article), class: "article-index-title") %>
+              <div class="row article-index-title">
+                <%= link_to(truncate(article.title,:length => 40),article_path(article)) %>
               </div>
               <div class="row article-summary">
                 <%= article.summary %>
               </div>
               <div class="article-user row">
                 <div class="col-md-6">
-                  <span> <%= article.user.email %></span>
+                  <span> <%= article.user.display_name %> 发布于 <%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
                 </div>
-                <div class="col-md-6">
-                  <span> <%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
+                
+                <!-- 待完善 -->
+                <div class="col-md-2">
+                  <span> 阅读(192) </span>
                 </div>
+                <div class="col-md-2">
+                  <span> 评论(5) </span>
+                </div>
+                
+                <!-- <div class="col-md-6">
+                  <span> 标签：BTC </span>
+                </div> -->
+                
               </div>
             </div>
 
           </div>
-          <hr>
+      
         </div>
       <% end %>
 

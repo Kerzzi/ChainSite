@@ -1,7 +1,7 @@
 // article/index CSS
 
 .article-all {
-  margin: 10px 10px 0 10px;
+  margin: 10px 10px 10px 10px;
 }
 
 .article-box {
@@ -11,7 +11,10 @@
     -webkit-line-clamp:2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    height: 55px;
   }
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f3f3f3;
 }
 
 .article-index-box {
