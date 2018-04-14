@@ -5,22 +5,21 @@
 <div class="container">
   <div class="col-md-9">
 
-    <div id="site_nodes" class="site-body" >
-      <% @site_nodes.each do |node| %>
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <div class="site-node">
-              <h4><%= node.name %><span class="pull-right"><%= link_to "更多", site_node_path(node), target: "_blank" %></span></h4>
-            </div>
-            <hr>
-
+    <div id="site_nodes" class="site-body row" >
+      <% @site_nodes.each do |node| %>                
+        <div class="site-box">      
+          <div class="site-node">    
+            <span class="site-node-name"><%= node.name %></span>
+            <span class="pull-right"><%= link_to "更多", site_node_path(node), target: "_blank" %></span>
+          </div>
+          <div class="site-list"> 
             <% node.sites.each do |site| %>
               <button type="button" class="btn" data-toggle="tooltip" data-placement="top" title="<%= site.description %>">
                 <%= link_to site.name, site.url, target: "_blank" %>
               </button>
-            <% end %>
-          </div>
-        </div>
+            <% end %>  
+          </div>         
+        </div>        
       <% end %>
     </div>
   </div>

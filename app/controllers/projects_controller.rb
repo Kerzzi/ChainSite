@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
-  before_action :authenticate_user!, :only => [:new, :create, :edit]
+  
+  before_action :authenticate_user!
+  before_action :require_editor!
 
   def index
     @projects = Project.published.recent.paginate(:page => params[:page], :per_page => 28)

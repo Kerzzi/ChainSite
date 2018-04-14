@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+  
+  before_action :authenticate_user!, :only => [:new, :create, :edit]
+  
   def index
     @articles = Article.published.recent.paginate(:page => params[:page], :per_page => 20)
   end
