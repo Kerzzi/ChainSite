@@ -16,11 +16,11 @@
 
         <!-- 作者、发布时间 -->
         <div class="article-author">
-
-          <span> <%= @article.user.email %></span> ·
-          于<span> <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span> ·
-          发布在 · <span> <%= @article.article_category.try(:name) %></span>栏目 ·
-          <span> <%= t(@article.status, :scope => "article.status") %></span>
+          <span> <%= @article.user.display_name %></span> ·
+          发布于<span> <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span> · 分类:
+          <% @article.article_categories.each do |c| %>                  
+            <span><%= c.name %></span>
+          <% end %>
           <hr>
         </div>
 

@@ -4,6 +4,7 @@
   </div>
   <div class="panel-body">
     <div class="group">
+      <%= link_to("文章类别管理", admin_article_categories_path, class: "btn btn-info pull-right") %>
       <%= link_to("发布新文章", new_admin_article_path, class: "btn btn-primary pull-right") %>
     </div>
     <p>操作说明：mark</p>
@@ -33,7 +34,11 @@
                 <td><%= article.author %></td>
                 <td><%= t(article.status, :scope => "article.status") %></td>
                 <td><%= article.source %></td>
-                <td><%= article.article_category.try(:name) %></td>
+                <td>
+                  <% article.article_categories.each do |c| %>                  
+                    <%= c.name %><br>
+                  <% end %>
+                </td>
                 <td>
                   <%= link_to '编辑', edit_admin_article_path(article) %>
                   <%= link_to '删除', admin_article_path(article), 'data-confirm' => 'Are you sure?' , method: :delete %>

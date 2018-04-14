@@ -9,7 +9,8 @@ class Article < ApplicationRecord
   STATUS = ["draft", "public", "private"]
   validates_inclusion_of :status, :in => STATUS
 
-  belongs_to :article_category, :optional => true
+  has_many :article_relationships
+  has_many :article_categories, :through => :article_relationships
   belongs_to :user
 
   scope :recent, -> { order("created_at DESC")}

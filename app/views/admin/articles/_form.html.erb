@@ -27,7 +27,12 @@
     <%= f.input :author, input_html: { class: "form-control"} , :label => "作者"%>
     <%= f.input :source, input_html: { class: "form-control"}, :label => "来源" %>
     <%= f.input :summary, input_html: { style: "width:100%; height:100px;"}, :label => "简介" %>
-    <%= f.association :article_category , :label => "文章类别"%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "文章类别" %>
+
+    <%= f.select :article_category_ids, ArticleCategory.all.map{ |c| [c.name, c.id] }, {}, :multiple => true, :class => "form-control" %>
   </div>
 
   <div class="form-group">
@@ -38,3 +43,8 @@
   <div class="pull-right"><a href="#" target="_blank">点击右下角拉升文本框</a><i class="fa fa-arrows-v" aria-hidden="true"></i></div>
   <div class="pull-right "><a href="#" target="_blank"><i class="fa fa-tip"></i> 排版说明</a>&nbsp; · &nbsp;</div>
 <% end %>
+
+
+<script> 
+  $("#article_article_category_ids").select2() 
+</script>
