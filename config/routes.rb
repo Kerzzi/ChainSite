@@ -3,10 +3,18 @@ Rails.application.routes.draw do
   devise_for :users
   root 'sites#index'
 
-  resources :sites
+  resources :sites do
+    collection do
+      get :search
+    end
+  end
   resources :site_nodes
   resources :article_categories
-  resources :articles
+  resources :articles do
+    collection do
+      get :search
+    end    
+  end
   resources :projects
 
   namespace :admin do
@@ -39,7 +47,7 @@ Rails.application.routes.draw do
     resources :users do
       collection do
         post :bulk_update
-      end      
+      end
     end
   end
 end

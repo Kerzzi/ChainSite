@@ -1,0 +1,67 @@
+<div class="container">
+  <%= render "common/flashes" %>
+</div>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-8 article-index-box">
+      <% if @query_string.blank? %>
+          <h4 class="search-info-title">搜索信息不能为空，请输入关键字搜索</h4>
+      <% elsif @articles.blank? %>
+          <br>
+          <h4 class="search-info-title">亲，没有搜索到相关信息哦，要不换个关键词试试？</h4>
+      <% else %>
+          <h4 class="search-info-title text-center"> 有关"<%= @query_string %>"的文章 </h4>
+          <hr>
+
+          <div class="search-result">
+            <% @articles.each do |article| %>
+              <div class="article-all">
+                <div class="article-box row">
+
+                  <!-- 文章列表图片 -->
+                  <div class="col-md-3 article_image_css">
+                    <% if article.image.present? %>
+                      <%= link_to image_tag(article.image.articleimg.url, class: "product-list-style-img img-responsive"), article_path(article) %>
+                    <% else %>
+                      <%= link_to image_tag("http://placehold.it/600x400&text=No Pic", class: "product-list-style-img img-responsive"), article_path(article)%>
+                    <% end %>
+                  </div>
+
+                  <!-- 文章列表标题、作者、日期 -->
+                  <div class="col-md-9">
+                    <div class="row article-index-title">
+                      <%= link_to(render_highlight_content(article, @query_string), article_path(article)) %>
+                    </div>
+                    <div class="row article-summary">
+                      <%= article.summary %>
+                    </div>
+                    <div class="article-user row">
+                      <div class="col-md-6">
+                        <span> <%= article.user.display_name %></span>
+                      </div>
+                      <div class="col-md-6">
+                        <span> <%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <hr>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% if @articles.present? %>
+        <div class="text-center">
+          <%= will_paginate @articles, renderer: BootstrapPagination::Rails, :previous_label => t('上一页'), :next_label => t('下一页') %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-md-4 sidebar">
+      <%= render "sidebar_for_article_index" %>
+    </div>
+  </div>
+</div>

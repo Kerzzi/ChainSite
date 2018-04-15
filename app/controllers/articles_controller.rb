@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
-  
+  before_action :validate_search_key, only: [:search]
   before_action :authenticate_user!, :only => [:new, :create, :edit]
-  
+
   def index
     @articles = Article.published.recent.paginate(:page => params[:page], :per_page => 20)
   end
@@ -52,6 +52,28 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
     redirect_to articles_path, alert: "文章已删除"
+  end
+
+  def search
+    if @query_string.present?
+      search_result = Article.ransack(@search_criteria).result(:distinct => true)
+      @articles = search_result.paginate(:page => params[:page], :per_page => 15 )
+    end
+
+  end
+
+
+  protected
+
+  # 取到params[:q]的内容并去掉非法的内容
+  def validate_search_key
+    @query_string = params[:q].gsub(/\\|\'|\/|\?/, "") if params[:q].present?
+    @search_criteria = search_criteria(@query_string)
+  end
+
+
+  def search_criteria(query_string)
+    { :title_cont => query_string }
   end
 
   private
