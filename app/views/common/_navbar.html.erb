@@ -12,6 +12,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
+                  <li><%= link_to("导航", sites_path) %></li>
                   <li><%= link_to("资讯", articles_path) %></li>
                   <li><%= link_to("技术", articles_path) %></li>
                   <li><%= link_to("福利", articles_path) %></li>
@@ -90,9 +91,23 @@
                     </ul>
                   </li><!-- mega-dropdown -->
 
-                  <li><%= link_to("关于", articles_path) %></li>
-                </ul>
+                  <li>
+                    <div class="nav navbar-nav navbar-left">
+                      <%= form_tag "#" , :method => :get  do %>
+                      <div class="input-group" id="search-id" >
+                        <input type="text" class="form-control" name="q" value="<%= params[:q] %>" placeholder="请输搜索内容">
+                        <div class="input-group-btn">
+                          <button class="btn btn-default" type="submit">
+                            搜站点
+                          </button>
+                        </div>
 
+                      </div>
+                      <% end %>
+                    </div>
+                  </li>
+
+                </ul>
 
                 <ul class="nav navbar-nav navbar-right">
                     <% if !current_user %>
