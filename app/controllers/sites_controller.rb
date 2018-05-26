@@ -3,6 +3,10 @@ class SitesController < ApplicationController
   def index
     @site_nodes = SiteNode.all
     @site = Site.all
+    set_page_title "区块链网址导航"
+    set_page_description "区块链网址导航，币圈链圈网址大全，数字货币网址导航，区块链网址导航，
+                          全面收录区块链行业网站，覆盖各大交易所官网，行情，挖矿，钱包，区块链技术服务，区块链查询工具，区块链实验室，行业协会等相关网站。
+                          如区块链网站、区块链网址、交易所网站、比特币网站、以太坊网站、莱特币网站、数字货币钱包网址。是您交易数字货币的必备网站。"
   end
 
   def search

@@ -1,58 +1,12 @@
-
-<!-- 右侧边栏 -->
-<div class="col-md-3">
-
-  <!-- 文章作者 -->
-  <div class="article-side-author">
-    <!-- 头像 -->
-    <div class="article-avatar text-center">
-
-    </div>
-    <!-- 用户名 -->
-    <div class="article-username text-center">
-      <%= @article.user.email %>
-    </div>
-
-
-    <!-- 最近文章 -->
-    <div class="article-author-title-list">
-      <h5>Ta的最新文章</h5>
-      <% @userarticles.each do |userarticle| %>
-        <p>· <%= link_to( truncate(userarticle.title,:length => 20) , article_path(userarticle)) %><span class="article-author-title-list-time">(<%= userarticle.created_at.strftime("%Y-%m-%d %H:%M:%S") %>)</span></p>
-      <% end %>
-    </div>
-
-  </div>
-
-
-  <div class="article-sidebar">
-    <a href="#" class="btn btn-block btn-sm btn-move-page" data-type="top"><i class="fa fa-arrow-up"></i></a>
-
-    <br/>
-
-
-
-    <!--打赏作者 -->
-
-    <hr />
-
-    <a href="#" class="btn btn-block btn-move-page" data-type="bottom"><i class="fa fa-arrow-down"></i></a>
-  </div>
-
-
-
-
-  <br/>
-  <!-- 投稿按钮 -->
+<!-- 管理按钮 -->
+<% if current_user %>
   <div class="text-center">
-    <%= link_to("我要投稿", new_article_path, class: "btn btn-danger center-block") %>
+    <%= link_to("更新文章", edit_article_path(@article), class: "btn btn-success center-block") %>
   </div>
-  <br>
-  <!-- 管理按钮 -->
-  <% if current_user %>
-    <div class="text-center">
-      <%= link_to("更新文章", edit_article_path(@article), class: "btn btn-success center-block") %>
-    </div>
-  <% end %>
+<% end %>
+<br>
 
-</div>
+<%= render "common/common_sidebar" %>
+
+
+

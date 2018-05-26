@@ -1,14 +1,18 @@
-
 <div class="container">
   <%= render "common/flashes" %>
 </div>
 
 <div class="container">
   <div class="row">
-    <div class="col-md-9 article-index-box">
+    <div class="col-md-12 breadcrumb-navigation">
+      <span> <%= link_to(content_tag(:i," 糖果空投", class: 'fa fa-gift'), articles_path) %> > <%= @article_category.name %> </span>
+    </div>
+  </div>
+    
+  <div class="row">      
+    <div class="col-md-9 article-category-show-box">
       <% @articles.each do |article| %>
-        
-        <div class="article-box row">
+        <div class="article-category-box row">
           <!-- 文章列表图片 -->
           <div class="col-md-3 article_image_css">
             <% if article.image.present? %>
@@ -21,43 +25,37 @@
           <!-- 文章列表标题、作者、日期 -->
           <div class="col-md-9">
             <div class="col-md-12">
-              <div class="row article-index-title">
+              <div class="row article-category-show-title">
                 <%= link_to(truncate(article.title,:length => 40),article_path(article)) %>
               </div>
-              <div class="row article-index-summary">
+              <div class="row article-category-show-summary">
                 <%= article.summary %>
               </div>
             </div>
-            <div class="article-time-tag row">
+            
+            <div class="article-category-time-tag row">
               <div class="col-md-5">
                 <span> <i class="fa fa-calendar" aria-hidden="true"></i> <%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") %> </span>
               </div>
               
               <div class="col-md-7">
                 <span> <i class="fa fa-tags" aria-hidden="true"></i> 
-                  <% @article_categories.each do |article_category| %>
-                    <!-- <span class="label label-success"><%= link_to(article_category.name , article_category_path(article_category)) %></span> -->
-                    <%= link_to(article_category.name , article_category_path(article_category)) %>
-                  <% end %> 
+                  <%= link_to(@article_category.name , article_category_path(@article_category)) %>
                 </span>
               </div>
             </div>
-            
           </div>
 
         </div>
-      
-        
       <% end %>
 
       <div class="text-center">
         <%= will_paginate @articles, renderer: BootstrapPagination::Rails, :previous_label => t('上一页'), :next_label => t('下一页') %>
       </div>
-
     </div>
-
-    <div class="col-md-3 sidebar">
-      <%= render "sidebar_for_article_index" %>
+    
+    <div class="col-md-3 siderbar">      
+        <%= render "articles/sidebar_for_article_index" %>    
     </div>
   </div>
 </div>

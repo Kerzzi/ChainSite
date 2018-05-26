@@ -1,20 +1,18 @@
+
 // article/index CSS
 
-.article-all {
-  margin: 10px 10px 10px 10px;
+.article-index-box {  
+  padding-top: 10px;
+  margin-top: -10px;
+  // margin: 10px 0px 10px 0px;
 }
 
 .article-box {
-  .article-summary{
-    // 下面4句，限制只显示几行文章，超出部分显示省略号
-    display: -webkit-box;
-    -webkit-line-clamp:2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    height: 70px;
-  }
-  padding-bottom: 10px;
-  border-bottom: 1px solid #f3f3f3;
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 14px 0 14px 0;
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
   
   .article_image_css{
     img {
@@ -24,9 +22,22 @@
   }
 }
 
-.article-index-box {
-  background-color: #fff;
-  padding-top: 10px;
+.article-index-summary {
+  // 下面几句，限制只显示几行文章，超出部分显示省略号
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;  //这里是在第4行有省略号
+  overflow: hidden;
+  text-overflow:ellipsis; 
+  height: 75px;
+  width: 100%;
+  
+  p {
+    font-size: 0.9em;
+    font-weight: normal;
+    color: #999;
+    // line-height: 1.8em;
+  }
 }
 
 .article-index-title {
@@ -34,8 +45,8 @@
   font-weight: normal;
 }
 
-.article-user {
-  color: #999;
+.article-time-tag {
+  // color: #999;
   margin-top: 10px;
 }
 
@@ -43,12 +54,27 @@
 // article/show CSS
 
 .article-show {
-  // margin: 10px auto;
+  .article-show-summary {
+    // 下面几句，限制只显示几行文章，超出部分显示省略号
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;  //这里是在第4行有省略号
+    overflow: hidden;
+    text-overflow:ellipsis; 
+  }
+  .article-statement{
+    font-size: 1em;
+  }
+  .article-user-name{
+    color: red;
+  }
 }
 
 .article-show-box {
   margin-bottom: 60px;
   background-color: #fff;
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
 }
 
 .article-title {
@@ -59,21 +85,19 @@
 }
 
 .article-author {
-  margin: 40px auto 60px;
+  margin: 15px auto 10px;
   color: #7f8c8d;
-}
-
-.article-summary {
-  p {
-    font-size: 0.8em;
-    font-weight: normal;
-    color: #999;
-    line-height: 1.8em;
+  font-size: 0.9em;
+  .chainsite-qq{
+    color: red;
+  }
+  .chainsite-telegarm{
+    color: red;
   }
 }
 
 .article-image {
-  margin: 50px auto 30px;
+  margin: 5px auto 5px;
 }
 
 .article-content {
@@ -96,19 +120,16 @@
 }
 .article-side-author {
   margin: -19px 0 0 0 ;
-  // border: 1px #e3e3e3 solid;
-  // border-radius: 6px;
   background-color: #fff;
 }
 
 .article-avatar {
   margin: 20px auto 10px;
-
 }
 
-.article-username {
-  color: #7f8c8d;
-  font-size: 1.2em;
+.article-site-name {
+  color: red;
+  font-size: 1em;
 }
 
 .article-author-summary {

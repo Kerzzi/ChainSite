@@ -12,13 +12,15 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
-                  <li><%= link_to("导航", sites_path) %></li>
-                  <li><%= link_to("资讯", articles_path) %></li>
-                  <li><%= link_to("技术", articles_path) %></li>
-                  <li><%= link_to("福利", articles_path) %></li>
+                  <li><%= link_to(content_tag(:i," 网址导航", class: 'fa fa-list'), sites_path) %></li>
+                  <li><%= link_to(content_tag(:i," 糖果空投", class: 'fa fa-gift'), articles_path) %></li>  
+                  <!-- <li><%= link_to(content_tag(:i," 资讯", class: 'fa fa-newspaper-o'), articles_path) %></li> -->
+                  <!-- <li><%= link_to(content_tag(:i," 技术交流", class: 'fa fa-btc'), articles_path) %></li> -->
+                  <!-- <li><%= link_to(content_tag(:i," 本站博客", class: 'fa fa-btc'), articles_path) %></li> -->
+                  <li><%= link_to(content_tag(:i," 归档", class: 'fa fa-book'), articles_path) %></li>
 
                   <li class="dropdown mega-dropdown">
-                    <a href="<%= sites_path %>" class="dropdown-toggle" data-toggle="dropdown">推广<span class="caret"></span></a>
+                    <a href="<%= sites_path %>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-free-code-camp" aria-hidden="true"></i> 推广<span class="caret"></span></a>
                     <ul class="dropdown-menu mega-dropdown-menu">
                       <li class="col-sm-3">
                         <ul>
@@ -132,20 +134,18 @@
                     <% else %>
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dropdownMenu" aria-haspopup="true" aria-expanded="false">
-                          Hi!, <%= current_user.display_name %>
+                          <i class="fa fa-user-circle" aria-hidden="true"></i> <%= current_user.display_name %>
                           <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
 
                           <% if current_user.is_editor? %>
-                            <li><%= link_to("后台管理", admin_root_path) %></li>
+                            <li><%= link_to(content_tag(:i," 后台管理", class: 'fa fa-cog'), admin_root_path) %></li>
                             <li role="separator" class="divider"></li>
                           <% end %>
-                          <li><%= link_to('个人主页', "#") %></li>
-                          <li><%= link_to('账户设置', "#") %></li>
+                          <li><%= link_to(content_tag(:i," 个人主页", class: 'fa fa-user'), "#") %></li>
                           <li role="separator" class="divider"></li>
-
-                          <li><%= link_to(content_tag(:i,"退出", class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %></li>
+                          <li><%= link_to(content_tag(:i," 退出", class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %></li>
                         </ul>
                       </li>
                     <% end %>

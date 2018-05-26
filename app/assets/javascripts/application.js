@@ -15,9 +15,9 @@
 //= require turbolinks
 //= require bootstrap
 //= require select2
+//= require social-share-button
+//= require social-share-button/wechat
 //= require_tree .
-
-
 
 
 // 网址导航页面的提示信息

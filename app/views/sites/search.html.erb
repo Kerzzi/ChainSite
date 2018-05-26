@@ -3,7 +3,7 @@
 </div>
 
 <div class="container">
-  <div class="col-md-8">
+  <div class="col-md-9 site-body">
     <% if @query_string.blank? %>
         <h4 class="search-info-title">搜索信息不能为空，请输入关键字搜索</h4>
     <% elsif @sites.blank? %>
@@ -27,7 +27,7 @@
         </div>
     <% end %>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-3">
     <%= render "sidebar_for_site_index" %>
   </div>
 </div>

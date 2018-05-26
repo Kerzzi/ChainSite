@@ -49,6 +49,7 @@ gem 'mini_magick'
 gem "select2-rails"
 gem 'ransack'
 gem 'seo_helper'
+gem 'social-share-button'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

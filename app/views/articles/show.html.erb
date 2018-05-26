@@ -8,29 +8,32 @@
     <div class="article-show">
 
       <div class="col-md-9 article-show-box">
-
         <!-- 标题 -->
-        <div class="article-title">
+        <div class="article-title text-center">
           <h3><%= @article.title %></h3>
         </div>
 
         <!-- 作者、发布时间 -->
-        <div class="article-author">
-          <span> <%= @article.user.display_name %></span> ·
-          发布于<span> <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span> · 分类:
-          <% @article.article_categories.each do |c| %>                  
-            <span><%= c.name %></span>
-          <% end %>
+        <div class="article-author text-center">
+          <span> 
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i> 作者：<%= @article.user.display_name %> 
+            <i class="fa fa-calendar" aria-hidden="true"></i> 时间：<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %> 
+            <i class="fa fa-tags" aria-hidden="true"></i> 标签：
+            <% @article.article_categories.each do |c| %>                  
+              <span><%= c.name %></span>
+            <% end %>
+          </span>
+          <br>
+          <br>
+          <span>加入链网 QQ群  <strong class="chainsite-qq">558315303</strong>,电报群 <strong class="chainsite-telegarm">@ChainSiteOne</strong>,第一时间了解糖果空投信息！</span>
           <hr>
         </div>
 
         <!-- 摘要 -->
-        <div class="article-summary">
-          <p>
-            <blockquote>
-                <%= simple_format(@article.summary) %>
-            </blockquote>
-          </p>
+        <div class="article-show-summary">
+          <blockquote>
+              <%= simple_format(@article.summary) %>
+          </blockquote>
         </div>
 
         <!-- 主图 -->
@@ -39,21 +42,28 @@
             <%= image_tag(@article.image.articleimg.url, class: "img-rounded img-responsive center-block") %>
           </div>
         <% end %>
-        <hr>
-
+        
         <!-- 内容 -->
         <div class="article-content">
           <%= simple_format(@article.content) %>
         </div>
-
+        <div class="article-share text-center">
+          <%= social_share_button_tag(@article.title) %>
+        </div>
+        <br>
+        <div class="article-statement">
+          <blockquote>
+            声明：本文由<strong class="article-site-name"> 链网（ChainSite.One）</strong>收集发布，转载请保留出处！<br>
+            官方微信公众号：<strong class="article-site-name"> 区块链行思笔记 (ChainSite.One)</strong>，欢迎关注。
+          </blockquote>
+        </div>
         <hr>
 
-
-
       </div>
-
-      <%= render "sidebar_for_article_show.html.erb" %>
-
+      <!-- 右侧边栏 -->
+      <div class="col-md-3">
+          <%= render "sidebar_for_article_show.html.erb" %>
+      </div>
     </div>
 
   </div>

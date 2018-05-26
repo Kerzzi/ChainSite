@@ -8,7 +8,9 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])    
+    @project = Project.find(params[:id]) 
+    set_page_title @project.title
+    set_page_description "#{@project.introduce}"
   end
 
   def edit

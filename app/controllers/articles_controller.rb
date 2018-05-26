@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, :only => [:new, :create, :edit]
 
   def index
+    @article_categories = ArticleCategory.all
     @articles = Article.published.recent.paginate(:page => params[:page], :per_page => 20)
   end
 
@@ -15,7 +16,9 @@ class ArticlesController < ApplicationController
       flash[:warning] = "这篇文章在审核中！不可查看！"
       redirect_to root_path
     end
-
+    
+    set_page_title @article.title
+    set_page_description "#{@article.content}"
   end
 
   def new

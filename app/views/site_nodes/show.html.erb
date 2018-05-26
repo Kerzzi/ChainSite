@@ -1,25 +1,36 @@
 <div class="container">
-  <div class="col-md-9">
+  <%= render "common/flashes" %>
+</div>
 
-    <div  class="site-body" >
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 breadcrumb-navigation">
+      <span> <%= link_to(content_tag(:i," 网址导航", class: 'fa fa-list'), root_path) %> > <%= @site_node.name %> </span>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-9">
+        <div  class="site-body" >
 
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="site-node">
-            <h5><%= @site_node.name %><span class="pull-right"><%= link_to "返回", sites_path %></span></h5>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="site-node">
+                <h5><%= @site_node.name %><span class="pull-right"><%= link_to "返回", sites_path %></span></h5>
+              </div>
+              <hr>
+
+              <% @sites.each do |site| %>
+                <p><%= link_to site.name, site.url, target: "_blank" %> &nbsp; <span><%= site.description %></span></p>        
+              <% end %>
+                        
+            </div>
           </div>
-          <hr>
-
-          <% @sites.each do |site| %>
-            <p><%= link_to site.name, site.url, target: "_blank" %> &nbsp; <span><%= site.description %></span></p>        
-          <% end %>
-                    
+      
         </div>
       </div>
-  
+      <div class="col-md-3">
+        <%= render "sites/sidebar_for_site_index" %>
+      </div>
     </div>
-  </div>
-  <div class="col-md-3">
-    <%= render "sites/sidebar_for_site_index" %>
   </div>
 </div>

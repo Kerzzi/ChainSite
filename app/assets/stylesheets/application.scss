@@ -10,6 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require font-awesome
+ *= require social-share-button
  *= require_tree .
  *= require_self
  */
@@ -19,6 +21,8 @@
 @import "bootstrap";
 @import "select2";
 @import "select2-bootstrap";
+@import "social-share-button";
+@import "font-awesome";
 
 html{
   height: 100%;                                      // footer固定底部
@@ -35,7 +39,7 @@ body {
 
   letter-spacing: 0.1em;                              //字间距
   a {                                                 // 所有a标签统一样式
-    color: #666;                                      // 链接反转的样式
+    //color: #666;                                      // 链接反转的样式
     transition: 0.5s;                                 // 鼠标移开时 0.5秒渐变
   }
   a:hover {
@@ -186,4 +190,30 @@ nav{
       float: right;
       color: #9E9E9E;
     }
+}
+
+//分享图标尺寸设置
+
+$size: 22px;
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+  }
+}
+
+//面包屑导航
+.breadcrumb-navigation{
+  color: #666;
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 5px 10px 5px 10px;
+  border: 1px solid #E0E0E0;
+  border-radius: 3px;
+  
+  a{
+    color: #666;
+  }
 }
