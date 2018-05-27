@@ -5,6 +5,9 @@ class ArticlesController < ApplicationController
   def index
     @article_categories = ArticleCategory.all
     @articles = Article.published.recent.paginate(:page => params[:page], :per_page => 20)
+    set_page_title "糖果空投"
+    set_page_description "糖果空投、币圈资讯、区块链技术交流"
+    set_page_keywords  "数字货币空投,免费数字货币,免费糖果,空投糖果,平台糖果,app糖果,区块链资讯,区块链技术"
   end
 
   def show
@@ -19,6 +22,7 @@ class ArticlesController < ApplicationController
     
     set_page_title @article.title
     set_page_description "#{@article.content}"
+
   end
 
   def new

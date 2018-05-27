@@ -5,6 +5,9 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.published.recent.paginate(:page => params[:page], :per_page => 28)
+    set_page_title "项目测评"
+    set_page_description "区块链项目测评"
+    set_page_keywords  "区块链项目测评,区块链项目,项目评级,优质区块链项目"
   end
 
   def show

@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <%= render_page_title_tag %> 
-      <%= render_page_description_meta_tag %>     
       <%= csrf_meta_tags %>
+      <%= render_page_title_tag %> 
+      <%= render_page_keywords_meta_tag %> 
+      <%= render_page_description_meta_tag %> 
       <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-      <link rel="shortcut icon" href="/images/favicon.ico">
+      <link rel="shortcut icon" href="images/favicon.ico">
+      
     </head>
 
     <body id="<%= "#{controller_name}-#{action_name}"%>">
