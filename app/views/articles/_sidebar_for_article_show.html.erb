@@ -1,12 +1,10 @@
+<%= render "common/common_sidebar" %>
+
+<br>
+
 <!-- 管理按钮 -->
-<% if current_user %>
+<% if current_user && current_user.is_admin? %>
   <div class="text-center">
     <%= link_to("更新文章", edit_article_path(@article), class: "btn btn-success center-block") %>
   </div>
 <% end %>
-<br>
-
-<%= render "common/common_sidebar" %>
-
-
-
