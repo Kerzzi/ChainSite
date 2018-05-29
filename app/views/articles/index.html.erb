@@ -1,4 +1,3 @@
-
 <div class="container">
   <%= render "common/flashes" %>
 </div>
@@ -6,8 +5,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-9 article-index-box">
-      <% @articles.each do |article| %>
-        
+      <% @articles.each do |article| %>      
         <div class="article-box row">
           <!-- 文章列表图片 -->
           <div class="col-md-3 article_image_css">
@@ -35,19 +33,15 @@
               
               <div class="col-md-7">
                 <span> <i class="fa fa-tags" aria-hidden="true"></i> 
-                  <% @article_categories.each do |article_category| %>
+                  <% article.article_categories.each do |article_category| %>
                     <!-- <span class="label label-success"><%= link_to(article_category.name , article_category_path(article_category)) %></span> -->
                     <%= link_to(article_category.name , article_category_path(article_category)) %>
                   <% end %> 
                 </span>
               </div>
-            </div>
-            
+            </div>        
           </div>
-
         </div>
-      
-        
       <% end %>
 
       <div class="text-center">

@@ -20,7 +20,7 @@
             <i class="fa fa-calendar" aria-hidden="true"></i> 时间：<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %> 
             <i class="fa fa-tags" aria-hidden="true"></i> 标签：
             <% @article.article_categories.each do |c| %>                  
-              <span><%= c.name %></span>
+              <span><%= link_to(c.name , article_category_path(c)) %></span>              
             <% end %>
           </span>
           <br>
