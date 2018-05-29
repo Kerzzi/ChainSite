@@ -17,6 +17,7 @@
 //= require select2
 //= require social-share-button
 //= require social-share-button/wechat
+//= require simplemde.min
 //= require_tree .
 
 

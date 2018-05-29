@@ -23,6 +23,7 @@
 @import "select2-bootstrap";
 @import "social-share-button";
 @import "font-awesome";
+@import "simplemde.min";
 
 html{
   height: 100%;                                      // footer固定底部
@@ -194,7 +195,7 @@ nav{
 
 //分享图标尺寸设置
 
-$size: 22px;
+$size: 26px;
 
 .social-share-button {
   .ssb-icon {

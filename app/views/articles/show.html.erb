@@ -45,7 +45,7 @@
         
         <!-- 内容 -->
         <div class="article-content">
-          <%= simple_format(@article.content) %>
+          <%=  markdown(@article.content) %>
         </div>
         <div class="article-share text-center">
           <%= social_share_button_tag(@article.title) %>

@@ -1,6 +1,16 @@
+<head>
+  <link rel="stylesheet" href="assets/simplemde.min.css">
+  <script src="assets/simplemde.min.js"></script>
+</head>
+
 <div class="panel panel-default">
   <div class="panel-heading">更新文章</div>
   <div class="panel-body">
     <%= render "form" %>
   </div>
 </div>
+
+
+<script>
+  var simplemde = new SimpleMDE({spellChecker: false});
+</script>

@@ -8,6 +8,6 @@
   <p> 作者：<%= @article.author %> 文章来源：<%= @article.source %></p>
   <p> 最后更新时间：<%= time_tag(@article.updated_at) %> </p>
   <hr>
-  <%= sanitize @article.content %>
+  <%= markdown(@article.content) %>
 
 </div>

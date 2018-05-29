@@ -52,6 +52,8 @@ gem 'social-share-button'
 gem 'carrierwave-qiniu'
 gem 'qiniu-rs'
 gem 'figaro'
+gem 'simplemde-rails'
+gem 'redcarpet'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
