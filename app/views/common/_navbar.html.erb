@@ -4,11 +4,16 @@
       <nav class="navbar navbar-default navbar-fixed-top show_bgcolor" role="navigation">
 
         <div class="container ">
-            <!-- 后期采用app-navbar 样式-->
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">ChainSite</a>
+              <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand hidden-sm" href="/">ChainSite链网</a>
             </div>
-
+            
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
@@ -33,7 +38,7 @@
                   
 
 
-                  <li class="dropdown mega-dropdown">
+                  <li class="dropdown mega-dropdown hidden-sm">
                     <a href="<%= sites_path %>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-free-code-camp" aria-hidden="true"></i> 推广<span class="caret"></span></a>
                     <ul class="dropdown-menu mega-dropdown-menu">
                       <li class="col-sm-3">
@@ -123,7 +128,7 @@
                     </div>
                   </li> -->
 
-                  <li>
+                  <li class="hidden-sm hidden-md ">
                     <div class="nav navbar-nav navbar-left">
                       <%= form_tag search_articles_path , :method => :get  do %>
                       <div class="input-group" id="search-id" >
