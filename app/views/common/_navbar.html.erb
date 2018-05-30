@@ -17,18 +17,18 @@
                   <li class="dropdown">
                     <a href="<%= articles_path %>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-gift" aria-hidden="true"></i> 糖果空投<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                      <li><%= link_to(content_tag(:i," 糖果空投", class: 'fa fa-paper-plane-o'), articles_path) %></li> 
-                      <li><%= link_to(content_tag(:i," 平台糖果", class: 'fa fa-desktop'), articles_path) %></li> 
-                      <li><%= link_to(content_tag(:i," APP糖果", class: 'fa fa-rocket'), articles_path) %></li>
-                      <li><%= link_to(content_tag(:i," 电报糖果", class: 'fa fa-telegram'), articles_path) %></li>
+                      <li><%= link_to(content_tag(:i," 糖果空投", class: 'fa fa-paper-plane-o'), articles_path(:category => "糖果空投")) %></li> 
+                      <li><%= link_to(content_tag(:i," 平台糖果", class: 'fa fa-desktop'), articles_path(:category => "平台糖果")) %></li> 
+                      <li><%= link_to(content_tag(:i," APP糖果", class: 'fa fa-rocket'), articles_path(:category => "APP糖果")) %></li>
+                      <li><%= link_to(content_tag(:i," 电报糖果", class: 'fa fa-telegram'), articles_path(:category => "电报糖果")) %></li>
                       <li role="separator" class="divider"></li>
-                      <li><%= link_to(content_tag(:i," 新手帮助", class: 'fa fa-bullhorn'), articles_path) %></li> 
+                      <li><%= link_to(content_tag(:i," 新手帮助", class: 'fa fa-bullhorn'), articles_path(:category => "新手帮助")) %></li> 
                     </ul>
                   </li>
                   
-                  <!-- <li><%= link_to(content_tag(:i," 资讯", class: 'fa fa-newspaper-o'), articles_path) %></li> -->
-                  <!-- <li><%= link_to(content_tag(:i," 技术交流", class: 'fa fa-btc'), articles_path) %></li> -->
-                  <!-- <li><%= link_to(content_tag(:i," 本站博客", class: 'fa fa-btc'), articles_path) %></li> -->
+                  <!-- <li><%= link_to(content_tag(:i," 链网资讯", class: 'fa fa-newspaper-o'), articles_path(:category => "链网资讯")) %></li> -->
+                  <!-- <li><%= link_to(content_tag(:i," 技术交流", class: 'fa fa-btc'), articles_path(:category => "技术交流")) %></li> -->
+                  <!-- <li><%= link_to(content_tag(:i," 本站博客", class: 'fa fa-btc'), articles_path(:category => "站点博客")) %></li> -->
                   <li><%= link_to(content_tag(:i," 归档", class: 'fa fa-book'), articles_path) %></li>
                   
 

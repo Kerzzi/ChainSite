@@ -5,6 +5,27 @@ class ArticlesController < ApplicationController
   def index
     @article_categories = ArticleCategory.all
     @articles = Article.published.recent.paginate(:page => params[:page], :per_page => 20)
+    
+    @articles = case params[:category]
+                when "糖果空投"
+                  Article.published.drop_candy.recent.paginate(:page => params[:page], :per_page => 20)
+                when "平台糖果"
+                  Article.published.platform_candy.recent.paginate(:page => params[:page], :per_page => 20)
+                when "APP糖果"
+                  Article.published.app_candy.recent.paginate(:page => params[:page], :per_page => 20)            
+                when "电报糖果"
+                  Article.published.tele_candy.recent.paginate(:page => params[:page], :per_page => 20)
+                when "新手帮助"
+                  Article.published.novice_help.recent.paginate(:page => params[:page], :per_page => 20)
+                when "链网资讯"
+                  Article.published.news.recent.paginate(:page => params[:page], :per_page => 20)               
+                when "技术交流"
+                  Article.published.technology.recent.paginate(:page => params[:page], :per_page => 20)
+                when "站点公告"
+                  Article.published.notice.recent.paginate(:page => params[:page], :per_page => 20)
+                else  
+                  Article.published.recent.paginate(:page => params[:page], :per_page => 20)  
+                end      
     set_page_title "糖果空投"
     set_page_description "糖果空投、币圈资讯、区块链技术交流"
     set_page_keywords  "数字货币空投,免费数字货币,免费糖果,空投糖果,平台糖果,app糖果,区块链资讯,区块链技术"
@@ -86,7 +107,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :content,:summary,:image, :user_id, :author, :source, :status, :article_category_ids =>[] )
+    params.require(:article).permit(:title, :content, :category,:summary,:image, :user_id, :author, :source, :status, :article_category_ids =>[] )
   end
 
 end
