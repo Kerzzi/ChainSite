@@ -19,8 +19,11 @@
   
   .article_image_css{
     img {
-      max-width:100%; height:125px;         //重要样式代码，需要配合application.js的自适应代码块一起使用。可以实现图片按照divbox大小自动伸缩，从而实现响应式布局。
-      border-radius: 6px;                 //为图片设置6px的圆角
+      overflow: hidden;
+      max-width: 100%; 
+      width: auto;
+      height: auto;       
+      border-radius: 3px;                 //为图片设置3px的圆角
       }  
   }
 }
@@ -44,7 +47,7 @@
 }
 
 .article-category-show-title {
-  font-size: 1.3em;
+  font-size: 1.5vw;  //1.5% 设置width（可以理解为宽度单位）
   font-weight: normal;
 }
 
