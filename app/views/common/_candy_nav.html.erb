@@ -1,0 +1,9 @@
+<div class="container candy-nav">
+  <nav class="navbar navbar-default">
+    <ul class="nav navbar-nav navbar-left">
+      <% @article_categories.each do |article_category| %>
+        <li><%= link_to(article_category.name , article_category_path(article_category)) %></li>
+      <% end %> 
+    </ul>
+  </nav>
+</div>

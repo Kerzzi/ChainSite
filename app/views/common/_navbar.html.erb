@@ -13,11 +13,25 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
                   <li><%= link_to(content_tag(:i," 网址导航", class: 'fa fa-list'), sites_path) %></li>
-                  <li><%= link_to(content_tag(:i," 糖果空投", class: 'fa fa-gift'), articles_path) %></li>  
+
+                  <li class="dropdown">
+                    <a href="<%= articles_path %>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-gift" aria-hidden="true"></i> 糖果空投<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><%= link_to(content_tag(:i," 糖果空投", class: 'fa fa-paper-plane-o'), articles_path) %></li> 
+                      <li><%= link_to(content_tag(:i," 平台糖果", class: 'fa fa-desktop'), articles_path) %></li> 
+                      <li><%= link_to(content_tag(:i," APP糖果", class: 'fa fa-rocket'), articles_path) %></li>
+                      <li><%= link_to(content_tag(:i," 电报糖果", class: 'fa fa-telegram'), articles_path) %></li>
+                      <li role="separator" class="divider"></li>
+                      <li><%= link_to(content_tag(:i," 新手帮助", class: 'fa fa-bullhorn'), articles_path) %></li> 
+                    </ul>
+                  </li>
+                  
                   <!-- <li><%= link_to(content_tag(:i," 资讯", class: 'fa fa-newspaper-o'), articles_path) %></li> -->
                   <!-- <li><%= link_to(content_tag(:i," 技术交流", class: 'fa fa-btc'), articles_path) %></li> -->
                   <!-- <li><%= link_to(content_tag(:i," 本站博客", class: 'fa fa-btc'), articles_path) %></li> -->
                   <li><%= link_to(content_tag(:i," 归档", class: 'fa fa-book'), articles_path) %></li>
+                  
+
 
                   <li class="dropdown mega-dropdown">
                     <a href="<%= sites_path %>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-free-code-camp" aria-hidden="true"></i> 推广<span class="caret"></span></a>
