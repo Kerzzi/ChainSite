@@ -3,59 +3,57 @@
 </div>
 
 <div class="container">
-  <div class="container">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 breadcrumb-navigation">
-      <span> <%= link_to(content_tag(:i," 全部文章", class: 'fa fa-gift'), articles_path) %> > <%= @article_category.name %> </span>
-    </div>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 breadcrumb-navigation">
+    <span> <%= link_to(content_tag(:i," 全部文章", class: 'fa fa-gift'), articles_path) %> > <%= @article_category.name %> </span>
   </div>
-    
-  <div class="container">      
-    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 article-category-show-box">
-      <% @articles.each do |article| %>
-        <div class="article-category-box row">
-          <!-- 文章列表图片 -->
-          <div class="col-xs-4 col-sm-3 col-md-4 col-lg-3 article_image_css">
-            <% if article.image.present? %>
-              <%= link_to image_tag(article.image.articleimg.url, class: "product-list-style-img img-responsive"), article_path(article) %>
-            <% else %>
-              <%= link_to image_tag("https://ww2.sinaimg.cn/large/006tKfTcly1fnt7p9w5h6j306o06owec.jpg", class: "product-list-style-img img-responsive"), article_path(article)%>
-            <% end %>
-          </div>
+</div>
+  
+<div class="container">      
+  <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 article-category-show-box">
+    <% @articles.each do |article| %>
+      <div class="article-category-box row">
+        <!-- 文章列表图片 -->
+        <div class="col-xs-4 col-sm-3 col-md-4 col-lg-3 article_image_css">
+          <% if article.image.present? %>
+            <%= link_to image_tag(article.image.articleimg.url, class: "product-list-style-img img-responsive"), article_path(article) %>
+          <% else %>
+            <%= link_to image_tag("https://ww2.sinaimg.cn/large/006tKfTcly1fnt7p9w5h6j306o06owec.jpg", class: "product-list-style-img img-responsive"), article_path(article)%>
+          <% end %>
+        </div>
 
-          <!-- 文章列表标题、作者、日期 -->
-          <div class="col-xs-8 col-sm-9 col-md-8 col-lg-9">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <div class="row article-category-show-title">
-                <%= link_to(truncate(article.title,:length => 40),article_path(article)) %>
-              </div>
-              <div class="row article-category-show-summary  hidden-sm hidden-xs">
-                <%= article.summary %>
-              </div>
+        <!-- 文章列表标题、作者、日期 -->
+        <div class="col-xs-8 col-sm-9 col-md-8 col-lg-9">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="row article-category-show-title">
+              <%= link_to(truncate(article.title,:length => 40),article_path(article)) %>
+            </div>
+            <div class="row article-category-show-summary  hidden-sm hidden-xs">
+              <%= article.summary %>
+            </div>
+          </div>
+          
+          <div class="article-category-time-tag row">
+            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+              <span> <i class="fa fa-calendar" aria-hidden="true"></i> <%= article.created_at.strftime("%Y-%m-%d") %> </span>
             </div>
             
-            <div class="article-category-time-tag row">
-              <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-                <span> <i class="fa fa-calendar" aria-hidden="true"></i> <%= article.created_at.strftime("%Y-%m-%d") %> </span>
-              </div>
-              
-              <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
-                <span> <i class="fa fa-tags" aria-hidden="true"></i> 
-                  <%= link_to(@article_category.name , article_category_path(@article_category)) %>
-                </span>
-              </div>
+            <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+              <span> <i class="fa fa-tags" aria-hidden="true"></i> 
+                <%= link_to(@article_category.name , article_category_path(@article_category)) %>
+              </span>
             </div>
           </div>
-
         </div>
-      <% end %>
 
-      <div class="text-center">
-        <%= will_paginate @articles, renderer: BootstrapPagination::Rails, :previous_label => t('上一页'), :next_label => t('下一页') %>
       </div>
+    <% end %>
+
+    <div class="text-center">
+      <%= will_paginate @articles, renderer: BootstrapPagination::Rails, :previous_label => t('上一页'), :next_label => t('下一页') %>
     </div>
-    
-    <div class="col-md-3 siderbar hidden-sm hidden-xs">      
-        <%= render "articles/sidebar_for_article_index" %>    
-    </div>
+  </div>
+  
+  <div class="col-md-3 siderbar hidden-sm hidden-xs">      
+      <%= render "articles/sidebar_for_article_index" %>    
   </div>
 </div>

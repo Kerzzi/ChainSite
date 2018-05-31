@@ -84,7 +84,7 @@ class ArticlesController < ApplicationController
 
   def search
     if @query_string.present?
-      search_result = Article.ransack(@search_criteria).result(:distinct => true)
+      search_result = Article.published.ransack(@search_criteria).result(:distinct => true)
       @articles = search_result.paginate(:page => params[:page], :per_page => 15 )
     end
 

@@ -3,28 +3,31 @@
 </div>
 
 <div class="container">
-  <div class="row">
 
     <div class="article-show">
 
       <div class="col-md-9 article-show-box">
         <!-- 标题 -->
         <div class="article-title text-center">
-          <h3><%= @article.title %></h3>
+          <h4><%= @article.title %></h4>
         </div>
 
         <!-- 作者、发布时间 -->
         <div class="article-author text-center">
           <span> 
-            <i class="fa fa-user-circle-o" aria-hidden="true"></i> 作者：<%= @article.user.display_name %> 
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i> 作者：<%= @article.user.display_name %> &nbsp;&nbsp; 
             <i class="fa fa-calendar" aria-hidden="true"></i> 时间：<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %> 
+          </span>
+          <br>
+
+          <span>
             <i class="fa fa-tags" aria-hidden="true"></i> 标签：
             <% @article.article_categories.each do |c| %>                  
               <span><%= link_to(c.name , article_category_path(c)) %></span>              
             <% end %>
           </span>
           <br>
-          <br>
+          
           <span>加入链网 QQ群  <strong class="chainsite-qq">558315303</strong>,电报群 <strong class="chainsite-telegarm">@ChainSiteOne</strong>,第一时间了解糖果空投信息！</span>
           <hr>
         </div>
@@ -66,5 +69,5 @@
       </div>
     </div>
 
-  </div>
+
 </div>

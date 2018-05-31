@@ -149,12 +149,17 @@ nav{
     flex: 0 0 auto;
     width:100%;
     text-align: center;
-    min-height: 220px;
+    // min-height: 220px;
     padding-top: 15px;
     background-color: #E0E0E0;
     margin-bottom: auto;
     color: #212121;
-
+    
+    .footer-fisrt{
+      border-bottom: 1px solid #fff;
+      margin-bottom: 10px;
+    }
+    
     p{
         font-size: 14px;
         text-align: left;
